@@ -4,6 +4,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Reflection;
+using System.Threading;
 
 namespace SuKey
 {
@@ -12,13 +13,24 @@ namespace SuKey
         [STAThread]
         public static void Main()
         {
-            Application.Run(new SuKeyApp());
+            bool createdNew = true;
+            using (Mutex mutex = new Mutex(true, "SuKeyApp", out createdNew))
+            {
+                if (createdNew)
+                {
+                    Application.EnableVisualStyles();
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    Application.Run(new SuKeyApp());
+                }
+
+            }
         }
 
         private NotifyIcon trayIcon;
         private ContextMenu trayMenu;
         private KeyboardHook hook;
         private Forms.AboutBox aboutBox;
+
 
         private String GetModifierText(uint modifierBits)
         {
