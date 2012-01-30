@@ -18,6 +18,7 @@ namespace SuKey
         private NotifyIcon trayIcon;
         private ContextMenu trayMenu;
         private KeyboardHook hook;
+        private Forms.AboutBox aboutBox;
 
         private String GetModifierText(uint modifierBits)
         {
@@ -92,6 +93,7 @@ namespace SuKey
             string shortCutKey = "("+GetModifierText(modifier) + "+" + getKeyText(key)+")";
             trayMenu.MenuItems.Add(String.Format(Properties.Resources.TrayMenuItemSwitch,shortCutKey), OnSwitch);
             trayMenu.MenuItems.Add("-");
+            trayMenu.MenuItems.Add("About...", OnAbout);
             trayMenu.MenuItems.Add(Properties.Resources.TrayMenuItemExit, OnExit);
 
             // Create a tray icon
@@ -112,6 +114,7 @@ namespace SuKey
             trayIcon.ContextMenu = trayMenu;
             trayIcon.Visible = true;
 
+            aboutBox = new Forms.AboutBox();
         }
 
         protected override void OnLoad(EventArgs e)
@@ -132,6 +135,11 @@ namespace SuKey
             Application.Exit();
         }
 
+        private void OnAbout(object sender, EventArgs e)
+        {
+            if (!aboutBox.Visible)
+                aboutBox.ShowDialog();
+        }
         protected override void Dispose(bool isDisposing)
         {
             if (isDisposing)
