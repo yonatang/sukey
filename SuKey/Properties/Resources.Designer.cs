@@ -59,5 +59,69 @@ namespace SuKey.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alt.
+        /// </summary>
+        internal static string ModifierAlt {
+            get {
+                return ResourceManager.GetString("ModifierAlt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ctrl.
+        /// </summary>
+        internal static string ModifierCtrl {
+            get {
+                return ResourceManager.GetString("ModifierCtrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shift.
+        /// </summary>
+        internal static string ModifierShift {
+            get {
+                return ResourceManager.GetString("ModifierShift", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Win.
+        /// </summary>
+        internal static string ModifierWin {
+            get {
+                return ResourceManager.GetString("ModifierWin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SuKey {0}
+        ///Double click to switch.
+        /// </summary>
+        internal static string TrayIconText {
+            get {
+                return ResourceManager.GetString("TrayIconText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exit.
+        /// </summary>
+        internal static string TrayMenuItemExit {
+            get {
+                return ResourceManager.GetString("TrayMenuItemExit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Switch! {0}.
+        /// </summary>
+        internal static string TrayMenuItemSwitch {
+            get {
+                return ResourceManager.GetString("TrayMenuItemSwitch", resourceCulture);
+            }
+        }
     }
 }
