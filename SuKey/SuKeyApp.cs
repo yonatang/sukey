@@ -93,6 +93,7 @@ namespace SuKey
             string shortCutKey = "("+GetModifierText(modifier) + "+" + getKeyText(key)+")";
             trayMenu.MenuItems.Add(String.Format(Properties.Resources.TrayMenuItemSwitch,shortCutKey), OnSwitch);
             trayMenu.MenuItems.Add("-");
+            trayMenu.MenuItems.Add("Settings...", OnSettings);
             trayMenu.MenuItems.Add("About...", OnAbout);
             trayMenu.MenuItems.Add(Properties.Resources.TrayMenuItemExit, OnExit);
 
@@ -130,6 +131,11 @@ namespace SuKey
             Switcher.Switch();
         }
 
+        private void OnSettings(object sender, EventArgs e)
+        {
+            Forms.SettingsForm sf = new Forms.SettingsForm();
+            sf.Show();
+        }
         private void OnExit(object sender, EventArgs e)
         {
             Application.Exit();
